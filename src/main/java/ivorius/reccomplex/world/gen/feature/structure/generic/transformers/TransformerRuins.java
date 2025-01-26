@@ -475,10 +475,9 @@ public class TransformerRuins extends Transformer<TransformerRuins.InstanceData>
 
     public boolean canLand(IBlockState state)
     {
-        return state.getMaterial() == Material.ROCK ? EnumPushReaction.NORMAL : EnumPushReaction.IGNORE;
-                // If not normal cube it will probably look weird later
-                && state.isNormalCube();
+        return state.getMaterial() == Material.ROCK && state.isNormalCube();
     }
+
 
     public boolean canFall(StructurePrepareContext context, IvWorldData worldData, RunTransformer transformer, BlockPos.MutableBlockPos dest, BlockPos worldPos, IBlockState state)
     {
