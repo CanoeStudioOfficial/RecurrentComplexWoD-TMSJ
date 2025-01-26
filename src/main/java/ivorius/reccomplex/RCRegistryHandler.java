@@ -28,6 +28,7 @@ import ivorius.reccomplex.json.SerializableStringTypeRegistry;
 import ivorius.reccomplex.network.*;
 import ivorius.reccomplex.operation.*;
 import ivorius.reccomplex.random.Poem;
+import ivorius.reccomplex.reccomplex.Tags;
 import ivorius.reccomplex.utils.FMLUtils;
 import ivorius.reccomplex.utils.presets.PresetRegistry;
 import ivorius.reccomplex.world.gen.feature.GenerationSanityChecker;
@@ -86,7 +87,7 @@ public class RCRegistryHandler
             tabStructureTools = new CreativeTabs("structureTools")
             {
                 @Override
-                public ItemStack getTabIconItem()
+                public ItemStack createIcon()
                 {
                     return new ItemStack(RCItems.blockSelector);
                 }
@@ -94,7 +95,7 @@ public class RCRegistryHandler
             tabLoot = new CreativeTabs("inventoryGenerators")
             {
                 @Override
-                public ItemStack getTabIconItem()
+                public ItemStack createIcon()
                 {
                     return new ItemStack(RCItems.lootGenerationTag);
                 }
@@ -107,88 +108,88 @@ public class RCRegistryHandler
         CapabilityManager.INSTANCE.register(RCEntityInfo.class, new NBTCompoundObjectCapabilityStorage<>(RCEntityInfo.class), RCEntityInfo::new);
         CapabilityManager.INSTANCE.register(CapabilitySelection.class, new NBTCompoundObjectCapabilityStorage<>(CapabilitySelection.class), CapabilitySelection::new);
 
-        blockSelector = new ItemBlockSelectorBlock().setUnlocalizedName("blockSelector");
+        blockSelector = new ItemBlockSelectorBlock().setTranslationKey("blockSelector");
         blockSelector.setCreativeTab(tabStructureTools);
         register(blockSelector, "block_selector");
         RecurrentComplex.cremapper.registerLegacyIDs(blockSelector, "blockSelector");
 
-        blockSelectorFloating = new ItemBlockSelectorFloating().setUnlocalizedName("blockSelectorFloating");
+        blockSelectorFloating = new ItemBlockSelectorFloating().setTranslationKey("blockSelectorFloating");
         blockSelectorFloating.setCreativeTab(tabStructureTools);
         register(blockSelectorFloating, "block_selector_floating");
         RecurrentComplex.cremapper.registerLegacyIDs(blockSelectorFloating, "blockSelectorFloating");
 
-        lootGenerationTag = (ItemLootGenMultiTag) new ItemLootGenMultiTag().setUnlocalizedName("inventoryGenerationTag");
+        lootGenerationTag = (ItemLootGenMultiTag) new ItemLootGenMultiTag().setTranslationKey("inventoryGenerationTag");
         lootGenerationTag.setCreativeTab(tabLoot);
         register(lootGenerationTag, "inventory_generation_tag");
         RecurrentComplex.cremapper.registerLegacyIDs(lootGenerationTag, "inventoryGenerationTag");
 
-        lootGenerationSingleTag = (ItemLootGenSingleTag) new ItemLootGenSingleTag().setUnlocalizedName("inventoryGenerationSingleTag");
+        lootGenerationSingleTag = (ItemLootGenSingleTag) new ItemLootGenSingleTag().setTranslationKey("inventoryGenerationSingleTag");
         lootGenerationSingleTag.setCreativeTab(tabLoot);
         register(lootGenerationSingleTag, "inventory_generation_single_tag");
         RecurrentComplex.cremapper.registerLegacyIDs(lootGenerationSingleTag, "inventoryGenerationSingleTag");
 
-        lootGenerationComponentTag = (ItemLootTableComponentTag) new ItemLootTableComponentTag().setUnlocalizedName("inventoryGenerationComponentTag");
+        lootGenerationComponentTag = (ItemLootTableComponentTag) new ItemLootTableComponentTag().setTranslationKey("inventoryGenerationComponentTag");
         lootGenerationComponentTag.setCreativeTab(tabLoot);
         register(lootGenerationComponentTag, "inventory_generation_component_tag");
 
-        artifactGenerationTag = new ItemArtifactGenerator().setUnlocalizedName("artifactGenerationTag");
+        artifactGenerationTag = new ItemArtifactGenerator().setTranslationKey("artifactGenerationTag");
         artifactGenerationTag.setCreativeTab(tabLoot);
         register(artifactGenerationTag, "artifact_generation_tag");
         RecurrentComplex.cremapper.registerLegacyIDs(artifactGenerationTag, "artifactGenerationTag");
 
-        bookGenerationTag = new ItemBookGenerator().setUnlocalizedName("bookGenerationTag");
+        bookGenerationTag = new ItemBookGenerator().setTranslationKey("bookGenerationTag");
         bookGenerationTag.setCreativeTab(tabLoot);
         register(bookGenerationTag, "book_generation_tag");
         RecurrentComplex.cremapper.registerLegacyIDs(bookGenerationTag, "bookGenerationTag");
 
-        genericSpace = (BlockGenericSpace) new BlockGenericSpace().setUnlocalizedName("negativeSpace");
+        genericSpace = (BlockGenericSpace) new BlockGenericSpace().setTranslationKey("negativeSpace");
         genericSpace.setCreativeTab(tabStructureTools);
         register(genericSpace, "generic_space", new ItemBlockGenericSpace(genericSpace));
         RecurrentComplex.cremapper.registerLegacyIDs(genericSpace, true, "negativeSpace");
 
-        genericSolid = new BlockGenericSolid().setUnlocalizedName("naturalFloor");
+        genericSolid = new BlockGenericSolid().setTranslationKey("naturalFloor");
         genericSolid.setCreativeTab(tabStructureTools);
         register(genericSolid, "generic_solid", new ItemBlockGenericSolid(genericSolid));
         RecurrentComplex.cremapper.registerLegacyIDs(genericSolid, true, "naturalFloor");
 
-        structureGenerator = new BlockStructureGenerator().setUnlocalizedName("structureGenerator");
+        structureGenerator = new BlockStructureGenerator().setTranslationKey("structureGenerator");
         register(structureGenerator, "structure_generator");
         register(BlockStructureGenerator.TileEntityStructureGenerator.class, "RCStructureGenerator", "SGStructureGenerator");
         RecurrentComplex.cremapper.registerLegacyIDs(structureGenerator, true, "structureGenerator");
 
-        mazeGenerator = new BlockMazeGenerator().setUnlocalizedName("mazeGenerator");
+        mazeGenerator = new BlockMazeGenerator().setTranslationKey("mazeGenerator");
         register(mazeGenerator, "maze_generator");
         register(BlockMazeGenerator.TileEntityMazeGenerator.class, "RCMazeGenerator", "SGMazeGenerator");
         RecurrentComplex.cremapper.registerLegacyIDs(mazeGenerator, true, "mazeGenerator");
 
-        spawnCommands = new BlockSpawnCommand().setUnlocalizedName("spawn_command");
+        spawnCommands = new BlockSpawnCommand().setTranslationKey("spawn_command");
         register(spawnCommands, "weighted_command_block");
         register(BlockSpawnCommand.TileEntitySpawnCommand.class, "RCSpawnCommand");
         RecurrentComplex.cremapper.registerLegacyIDs(spawnCommands, true, "spawnCommand");
 
-        spawnScript = new BlockScript().setUnlocalizedName("spawn_script");
+        spawnScript = new BlockScript().setTranslationKey("spawn_script");
         spawnScript.setCreativeTab(tabStructureTools);
         register(spawnScript, "spawn_script");
         register(TileEntityBlockScript.class, "RCSpawnScript");
 
-        inspector = new ItemInspector().setUnlocalizedName("recinspector");
+        inspector = new ItemInspector().setTranslationKey("recinspector");
         inspector.setCreativeTab(tabStructureTools);
         register(inspector, "inspector");
 
         // Set preset defaults
-        GenericPlacerPresets.instance().getRegistry().register("clear", MOD_ID, PresetRegistry.fullPreset("clear", new GenericPlacer(), new PresetRegistry.Metadata("Clear", "Do not place anywhere")), true, LeveledRegistry.Level.INTERNAL);
+        GenericPlacerPresets.instance().getRegistry().register("clear", Tags.MOD_ID, PresetRegistry.fullPreset("clear", new GenericPlacer(), new PresetRegistry.Metadata("Clear", "Do not place anywhere")), true, LeveledRegistry.Level.INTERNAL);
         GenericPlacerPresets.instance().setDefault("clear");
 
-        DimensionMatcherPresets.instance().getRegistry().register("clear", MOD_ID, PresetRegistry.fullPreset("clear", new ArrayList<>(), new PresetRegistry.Metadata("None", "No dimensions")), true, LeveledRegistry.Level.INTERNAL);
+        DimensionMatcherPresets.instance().getRegistry().register("clear", Tags.MOD_ID, PresetRegistry.fullPreset("clear", new ArrayList<>(), new PresetRegistry.Metadata("None", "No dimensions")), true, LeveledRegistry.Level.INTERNAL);
         DimensionMatcherPresets.instance().setDefault("clear");
 
-        BiomeMatcherPresets.instance().getRegistry().register("clear", MOD_ID, PresetRegistry.fullPreset("clear", new ArrayList<>(), new PresetRegistry.Metadata("None", "No biomes")), true, LeveledRegistry.Level.INTERNAL);
+        BiomeMatcherPresets.instance().getRegistry().register("clear", Tags.MOD_ID, PresetRegistry.fullPreset("clear", new ArrayList<>(), new PresetRegistry.Metadata("None", "No biomes")), true, LeveledRegistry.Level.INTERNAL);
         BiomeMatcherPresets.instance().setDefault("clear");
 
-        WeightedBlockStatePresets.instance().getRegistry().register("clear", MOD_ID, PresetRegistry.fullPreset("clear", new ArrayList<>(), new PresetRegistry.Metadata("None", "No blocks")), true, LeveledRegistry.Level.INTERNAL);
+        WeightedBlockStatePresets.instance().getRegistry().register("clear", Tags.MOD_ID, PresetRegistry.fullPreset("clear", new ArrayList<>(), new PresetRegistry.Metadata("None", "No blocks")), true, LeveledRegistry.Level.INTERNAL);
         WeightedBlockStatePresets.instance().setDefault("clear");
 
-        TransfomerPresets.instance().getRegistry().register("clear", MOD_ID, PresetRegistry.fullPreset("clear", new TransformerMulti.Data(), new PresetRegistry.Metadata("None", "No transformers")), true, LeveledRegistry.Level.INTERNAL);
+        TransfomerPresets.instance().getRegistry().register("clear", Tags.MOD_ID, PresetRegistry.fullPreset("clear", new TransformerMulti.Data(), new PresetRegistry.Metadata("None", "No transformers")), true, LeveledRegistry.Level.INTERNAL);
         TransfomerPresets.instance().setDefault("clear");
 
         GenerationSanityChecker.init();

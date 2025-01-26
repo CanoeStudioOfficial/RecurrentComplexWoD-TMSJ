@@ -17,6 +17,7 @@ import ivorius.reccomplex.commands.RCCommands;
 import ivorius.reccomplex.events.ItemGenerationEvent;
 import ivorius.reccomplex.gui.GuiHider;
 import ivorius.reccomplex.item.ItemInputHandler;
+import ivorius.reccomplex.reccomplex.Tags;
 import ivorius.reccomplex.world.gen.feature.WorldGenStructures;
 import ivorius.reccomplex.world.gen.feature.WorldRandomData;
 import ivorius.reccomplex.world.gen.feature.structure.StructureRegistry;
@@ -189,7 +190,7 @@ public class RCForgeEventHandler
     @SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent event)
     {
-        if (event instanceof ConfigChangedEvent.OnConfigChangedEvent && event.getModID().equals(RecurrentComplex.MOD_ID))
+        if (event instanceof ConfigChangedEvent.OnConfigChangedEvent && event.getModID().equals(Tags.MOD_ID))
         {
             RCConfig.loadConfig(event.getConfigID());
 
@@ -217,8 +218,8 @@ public class RCForgeEventHandler
     {
         if (event.getObject() instanceof EntityPlayer)
         {
-            event.addCapability(new ResourceLocation(RecurrentComplex.MOD_ID, RCEntityInfo.CAPABILITY_KEY), new SimpleCapabilityProvider<>(RCEntityInfo.CAPABILITY));
-            event.addCapability(new ResourceLocation(RecurrentComplex.MOD_ID, CapabilitySelection.CAPABILITY_KEY), new SimpleCapabilityProvider<>(CapabilitySelection.CAPABILITY));
+            event.addCapability(new ResourceLocation(Tags.MOD_ID, RCEntityInfo.CAPABILITY_KEY), new SimpleCapabilityProvider<>(RCEntityInfo.CAPABILITY));
+            event.addCapability(new ResourceLocation(Tags.MOD_ID, CapabilitySelection.CAPABILITY_KEY), new SimpleCapabilityProvider<>(CapabilitySelection.CAPABILITY));
         }
     }
 

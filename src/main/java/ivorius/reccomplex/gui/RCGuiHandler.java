@@ -16,6 +16,7 @@ import ivorius.reccomplex.gui.container.IvGuiRegistry;
 import ivorius.reccomplex.gui.loot.ContainerEditLootTableItems;
 import ivorius.reccomplex.gui.loot.GuiEditLootTable;
 import ivorius.reccomplex.gui.loot.GuiEditLootTableItems;
+import ivorius.reccomplex.reccomplex.Tags;
 import ivorius.reccomplex.utils.SaveDirectoryData;
 import ivorius.reccomplex.world.storage.loot.GenericLootTable.Component;
 import ivorius.reccomplex.world.storage.loot.GenericItemCollectionRegistry;
@@ -55,7 +56,7 @@ public class RCGuiHandler implements IvGuiHandler
         ItemCollectionSaveHandler.INSTANCE.write(buf, component);
         saveDirectoryData.writeTo(buf);
 
-        IvGuiRegistry.INSTANCE.openGui(player, RecurrentComplex.MOD_ID, guiID, buf);
+        IvGuiRegistry.INSTANCE.openGui(player, Tags.MOD_ID, guiID, buf);
     }
 
     public static void editLootTableComponent(EntityPlayer player, String key, Component component, SaveDirectoryData saveDirectoryData)

@@ -63,7 +63,7 @@ public class OperationRenderer
         for (GridQuadCache.CachedQuadLevel<?> cachedQuadLevel : cached)
         {
             EnumFacing direction = cachedQuadLevel.direction;
-            float zLevel = cachedQuadLevel.zLevel + 0.01f * (direction.getFrontOffsetX() + direction.getFrontOffsetY() + direction.getFrontOffsetZ());
+            float zLevel = cachedQuadLevel.zLevel + 0.01f * (direction.getXOffset() + direction.getYOffset() + direction.getZOffset());
 
             FloatBuffer quads = cachedQuadLevel.quads;
             while (quads.position() < quads.limit() - 3)

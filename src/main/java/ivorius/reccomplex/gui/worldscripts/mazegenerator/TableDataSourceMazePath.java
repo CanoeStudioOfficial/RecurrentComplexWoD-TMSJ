@@ -113,8 +113,8 @@ public class TableDataSourceMazePath extends TableDataSourceSegmented
 
     public static SavedMazePathConnection pathFromDirection(EnumFacing side, int[] room)
     {
-        int pathDim = side.getFrontOffsetX() != 0 ? 0 : side.getFrontOffsetY() != 0 ? 1 : side.getFrontOffsetZ() != 0 ? 2 : -1;
-        int offset = side.getFrontOffsetX() + side.getFrontOffsetY() + side.getFrontOffsetZ();
+        int pathDim = side.getXOffset() != 0 ? 0 : side.getYOffset() != 0 ? 1 : side.getZOffset() != 0 ? 2 : -1;
+        int offset = side.getXOffset() + side.getYOffset() + side.getZOffset();
 
         return new SavedMazePathConnection(pathDim, new MazeRoom(room[0], room[1], room[2]), offset > 0, ConnectorStrategy.DEFAULT_PATH, Collections.emptyList());
     }

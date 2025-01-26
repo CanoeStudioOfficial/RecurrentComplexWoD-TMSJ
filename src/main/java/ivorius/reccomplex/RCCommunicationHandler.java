@@ -48,7 +48,7 @@ public class RCCommunicationHandler extends IvFMLIntercommHandler
             boolean generates = cmp.getBoolean("generates");
 
             ResourceLocation resourceLocation = new ResourceLocation(genPath);
-            RecurrentComplex.loader.tryLoad(resourceLocation, genID, new FileLoadContext(resourceLocation.getResourceDomain(), generates, LeveledRegistry.Level.INTERNAL));
+            RecurrentComplex.loader.tryLoad(resourceLocation, genID, new FileLoadContext(resourceLocation.getNamespace(), generates, LeveledRegistry.Level.INTERNAL));
 
             return true;
         }

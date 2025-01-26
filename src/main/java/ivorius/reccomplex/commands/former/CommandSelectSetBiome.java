@@ -63,7 +63,7 @@ public class CommandSelectSetBiome extends CommandExpecting
         // TODO Send to clients somehow
         BlockSurfaceArea.from(RCCommands.getSelectionOwner(commandSender, null, true).getSelection()).forEach(p ->
         {
-            Chunk chunk = world.getChunkFromChunkCoords(p.getX() >> 4, p.getZ() >> 4);
+            Chunk chunk = world.getChunk(p.getX() >> 4, p.getZ() >> 4);
             chunk.getBiomeArray()[biomeArrayIndex(p)] = biomeID;
             chunk.setModified(true);
         });

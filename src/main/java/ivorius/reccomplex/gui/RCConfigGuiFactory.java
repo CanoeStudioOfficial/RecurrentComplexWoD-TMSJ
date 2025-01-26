@@ -8,6 +8,7 @@ package ivorius.reccomplex.gui;
 import ivorius.ivtoolkit.tools.IvTranslations;
 import ivorius.reccomplex.RCConfig;
 import ivorius.reccomplex.RecurrentComplex;
+import ivorius.reccomplex.reccomplex.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
@@ -60,7 +61,7 @@ public class RCConfigGuiFactory implements IModGuiFactory
     {
         public ConfigGui(GuiScreen parentScreen)
         {
-            super(parentScreen, getConfigElements(), RecurrentComplex.MOD_ID, false, false, IvTranslations.format("reccomplex.configgui.title"));
+            super(parentScreen, getConfigElements(), Tags.MOD_ID, false, false, IvTranslations.format("reccomplex.configgui.title"));
         }
 
         private static List<IConfigElement> getConfigElements()

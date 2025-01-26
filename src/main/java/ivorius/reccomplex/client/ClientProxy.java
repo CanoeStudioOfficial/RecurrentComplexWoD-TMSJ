@@ -37,7 +37,7 @@ public class ClientProxy implements RCProxy
     @Override
     public File getDataDirectory()
     {
-        return Minecraft.getMinecraft().mcDataDir;
+        return Minecraft.getMinecraft().getGameDirectory();
     }
 
     @Override

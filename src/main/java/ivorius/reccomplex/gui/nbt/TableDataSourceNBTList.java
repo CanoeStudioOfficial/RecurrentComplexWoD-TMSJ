@@ -118,7 +118,7 @@ public class TableDataSourceNBTList extends TableDataSourceSegmented
                     IntStream.range(0, 12)
                             .mapToObj((id) -> TableDataSourceNBT.typeButton(id, () ->
                             {
-                                while (!nbt.hasNoTags())
+                                while (!nbt.isEmpty())
                                     nbt.removeTag(nbt.tagCount() - 1);
                                 ReflectionHelper.setPrivateValue(NBTTagList.class, nbt, (byte) id, "tagType", "field_74746_b");
                                 delegate.reloadData();
@@ -134,7 +134,7 @@ public class TableDataSourceNBTList extends TableDataSourceSegmented
                 {
                     // Hax
                     List<NBTBase> cur = new ArrayList<>(nbt.tagCount());
-                    while (!nbt.hasNoTags())
+                    while (!nbt.isEmpty())
                         cur.add(nbt.removeTag(nbt.tagCount() - 1));
                     nbt.appendTag(n);
                     for (NBTBase prev : cur)

@@ -9,6 +9,7 @@ import ivorius.reccomplex.RCConfig;
 import ivorius.reccomplex.RecurrentComplex;
 import ivorius.reccomplex.events.RCEventBus;
 import ivorius.reccomplex.events.FileLoadEvent;
+import ivorius.reccomplex.reccomplex.Tags;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -24,7 +25,7 @@ public class RCRecurrentComplexEventHandler
     @SubscribeEvent
     public void onLoad(FileLoadEvent.Pre event)
     {
-        if (!RCConfig.generateNature && event.domain.equals(RecurrentComplex.MOD_ID) &&
+        if (!RCConfig.generateNature && event.domain.equals(Tags.MOD_ID) &&
                 (event.path.getParent().endsWith("nature") || event.path.getParent().getParent().endsWith("nature")))
             event.active = false;
     }

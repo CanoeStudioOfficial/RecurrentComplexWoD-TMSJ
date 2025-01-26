@@ -102,8 +102,8 @@ public class RCFiles
     {
         try
         {
-            URL resource = RCFiles.class.getResource(String.format("/assets/%s%s", resourceLocation.getResourceDomain(),
-                    resourceLocation.getResourcePath().isEmpty() ? "" : ("/" + resourceLocation.getResourcePath())));
+            URL resource = RCFiles.class.getResource(String.format("/assets/%s%s", resourceLocation.getNamespace(),
+                    resourceLocation.getPath().isEmpty() ? "" : ("/" + resourceLocation.getPath())));
             return resource != null ? resourceToPath(resource.toURI().toURL()) : null;
         }
         catch (Exception e)

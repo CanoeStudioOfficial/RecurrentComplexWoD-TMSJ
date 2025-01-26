@@ -59,7 +59,7 @@ public class HeightMapFreezer
     protected void initialize()
     {
         for (ChunkPos pos : RCStructureBoundingBoxes.rasterize(boundingBox, false))
-            chunks.put(index(pos), new Entry(world.getChunkFromChunkCoords(pos.x, pos.z)));
+            chunks.put(index(pos), new Entry(world.getChunk(pos.x, pos.z)));
 
         //noinspection ConstantConditions
         RCStructureBoundingBoxes.streamMutablePositions(boundingBox).forEach(pos ->

@@ -28,8 +28,8 @@ public class ItemBlockGenericSolid extends ItemBlock
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack)
+    public String getTranslationKey(ItemStack stack)
     {
-        return super.getUnlocalizedName(stack) + ".meta." + stack.getItemDamage();
+        return super.getTranslationKey(stack) + ".meta." + stack.getItemDamage();
     }
 }

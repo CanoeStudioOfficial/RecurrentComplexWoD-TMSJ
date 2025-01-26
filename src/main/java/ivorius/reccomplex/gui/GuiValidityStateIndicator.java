@@ -6,6 +6,7 @@
 package ivorius.reccomplex.gui;
 
 import ivorius.reccomplex.RecurrentComplex;
+import ivorius.reccomplex.reccomplex.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
@@ -20,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiValidityStateIndicator extends Gui
 {
-    protected static final ResourceLocation textureSprite = new ResourceLocation(RecurrentComplex.MOD_ID, RecurrentComplex.filePathTextures + "gui_states.png");
+    protected static final ResourceLocation textureSprite = new ResourceLocation(Tags.MOD_ID, RecurrentComplex.filePathTextures + "gui_states.png");
     /**
      * Button width in pixels
      */

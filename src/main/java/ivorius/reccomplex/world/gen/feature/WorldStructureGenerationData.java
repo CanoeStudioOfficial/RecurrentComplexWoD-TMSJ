@@ -15,6 +15,7 @@ import ivorius.ivtoolkit.tools.NBTCompoundObjects;
 import ivorius.ivtoolkit.tools.NBTTagLists;
 import ivorius.ivtoolkit.world.chunk.gen.StructureBoundingBoxes;
 import ivorius.reccomplex.RecurrentComplex;
+import ivorius.reccomplex.reccomplex.Tags;
 import ivorius.reccomplex.utils.RCAxisAlignedTransform;
 import ivorius.reccomplex.utils.RCStructureBoundingBoxes;
 import ivorius.reccomplex.world.gen.feature.structure.Structure;
@@ -39,7 +40,7 @@ import java.util.stream.Stream;
  */
 public class WorldStructureGenerationData extends WorldSavedData
 {
-    private static final String IDENTIFIER = RecurrentComplex.MOD_ID + "-structuredata";
+    private static final String IDENTIFIER = Tags.MOD_ID + "-structuredata";
 
     protected final Set<ChunkPos> checkedChunks = new HashSet<>();
     protected final Set<ChunkPos> checkedChunksFinal = new HashSet<>();

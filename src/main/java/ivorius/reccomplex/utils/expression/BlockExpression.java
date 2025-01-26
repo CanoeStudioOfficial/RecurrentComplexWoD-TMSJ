@@ -108,7 +108,7 @@ public class BlockExpression extends BoolFunctionExpressionCache<IBlockState, Ob
         @Override
         public Function<SupplierCache<IBlockState>, Boolean> parse(String var)
         {
-            return s -> registry.idFromBlock(s.get().getBlock()).getResourceDomain().equals(var);
+            return s -> registry.idFromBlock(s.get().getBlock()).getNamespace().equals(var);
         }
 
         @Override

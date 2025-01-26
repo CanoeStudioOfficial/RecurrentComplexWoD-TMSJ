@@ -12,6 +12,7 @@ import ivorius.reccomplex.RecurrentComplex;
 import ivorius.reccomplex.gui.GuiHider;
 import ivorius.reccomplex.gui.InventoryWatcher;
 import ivorius.reccomplex.gui.RCGuiHandler;
+import ivorius.reccomplex.reccomplex.Tags;
 import ivorius.reccomplex.utils.SaveDirectoryData;
 import ivorius.reccomplex.utils.scale.Scale;
 import ivorius.reccomplex.utils.scale.Scales;
@@ -41,7 +42,7 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class GuiEditLootTableItems extends GuiContainer implements InventoryWatcher
 {
-    public static ResourceLocation textureBackground = new ResourceLocation(RecurrentComplex.MOD_ID, RecurrentComplex.filePathTextures + "gui_edit_inventory_gen.png");
+    public static ResourceLocation textureBackground = new ResourceLocation(Tags.MOD_ID, RecurrentComplex.filePathTextures + "gui_edit_inventory_gen.png");
     public static Scale WEIGHT_SCALE = Scales.pow(5);
 
     public String key;

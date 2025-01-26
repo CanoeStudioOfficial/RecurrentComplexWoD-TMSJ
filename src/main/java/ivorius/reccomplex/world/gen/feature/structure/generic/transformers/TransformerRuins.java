@@ -141,7 +141,7 @@ public class TransformerRuins extends Transformer<TransformerRuins.InstanceData>
     protected static IBlockState randomPlacement(Random random, IBlockState stairs)
     {
         return stairs
-                .withProperty(BlockStairs.FACING, EnumFacing.getHorizontal(random.nextInt(4)))
+                .withProperty(BlockStairs.FACING, EnumFacing.HORIZONTALS[random.nextInt(4)])
                 .withProperty(BlockStairs.HALF, random.nextBoolean() ? BlockStairs.EnumHalf.BOTTOM : BlockStairs.EnumHalf.TOP);
     }
 
@@ -169,9 +169,9 @@ public class TransformerRuins extends Transformer<TransformerRuins.InstanceData>
     public double getStability(IvWorldData worldData, BlockPos sourcePos)
     {
         // +1 so the lowest block has a stability < 1
-        double stability = decayDirection.getFrontOffsetX() * ((sourcePos.getX() + 1) / (double) (worldData.blockCollection.getWidth() + 1))
-                + decayDirection.getFrontOffsetY() * ((sourcePos.getY() + 1) / (double) (worldData.blockCollection.getHeight() + 1))
-                + decayDirection.getFrontOffsetZ() * ((sourcePos.getZ() + 1) / (double) (worldData.blockCollection.getLength() + 1));
+        double stability = decayDirection.getXOffset() * ((sourcePos.getX() + 1) / (double) (worldData.blockCollection.getWidth() + 1))
+                + decayDirection.getYOffset() * ((sourcePos.getY() + 1) / (double) (worldData.blockCollection.getHeight() + 1))
+                + decayDirection.getZOffset() * ((sourcePos.getZ() + 1) / (double) (worldData.blockCollection.getLength() + 1));
         if (stability < 0) // Negative direction, not special case
             stability += 1;
         return stability;
@@ -475,7 +475,7 @@ public class TransformerRuins extends Transformer<TransformerRuins.InstanceData>
 
     public boolean canLand(IBlockState state)
     {
-        return state.getMaterial().getMobilityFlag() == EnumPushReaction.NORMAL
+        return state.getMaterial() == Material.ROCK ? EnumPushReaction.NORMAL : EnumPushReaction.IGNORE;
                 // If not normal cube it will probably look weird later
                 && state.isNormalCube();
     }

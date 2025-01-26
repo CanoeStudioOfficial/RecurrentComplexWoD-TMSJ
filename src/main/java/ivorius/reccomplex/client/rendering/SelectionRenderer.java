@@ -11,6 +11,7 @@ import ivorius.reccomplex.RecurrentComplex;
 import ivorius.reccomplex.capability.SelectionOwner;
 import ivorius.reccomplex.item.ItemBlockSelector;
 import ivorius.reccomplex.item.ItemBlockSelectorFloating;
+import ivorius.reccomplex.reccomplex.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -34,11 +35,11 @@ public class SelectionRenderer
     {
         TEXTURE = new ResourceLocation[100];
         for (int i = 0; i < TEXTURE.length; i++)
-            TEXTURE[i] = new ResourceLocation(RecurrentComplex.MOD_ID, String.format("%sselection/selection_%05d.png", RecurrentComplex.filePathTextures, i));
+            TEXTURE[i] = new ResourceLocation(Tags.MOD_ID, String.format("%sselection/selection_%05d.png", RecurrentComplex.filePathTextures, i));
 
         LATTICE_TEXTURE = new ResourceLocation[100];
         for (int i = 0; i < LATTICE_TEXTURE.length; i++)
-            LATTICE_TEXTURE[i] = new ResourceLocation(RecurrentComplex.MOD_ID, String.format("%sselection-lattice/lattice_%05d.png", RecurrentComplex.filePathTextures, i));
+            LATTICE_TEXTURE[i] = new ResourceLocation(Tags.MOD_ID, String.format("%sselection-lattice/lattice_%05d.png", RecurrentComplex.filePathTextures, i));
     }
 
     public static void renderSelection(EntityLivingBase entity, int ticks, float partialTicks)

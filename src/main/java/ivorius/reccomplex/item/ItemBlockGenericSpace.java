@@ -69,8 +69,8 @@ public class ItemBlockGenericSpace extends ItemBlock
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack par1ItemStack)
+    public String getTranslationKey(ItemStack par1ItemStack)
     {
-        return super.getUnlocalizedName(par1ItemStack) + ".meta." + par1ItemStack.getItemDamage();
+        return super.getTranslationKey(par1ItemStack) + ".meta." + par1ItemStack.getItemDamage();
     }
 }

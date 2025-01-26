@@ -80,7 +80,7 @@ public class CommandRetrogen extends CommandExpecting
     public static long retrogen(WorldServer world, Predicate<Structure> structurePredicate)
     {
         return existingChunks(world)
-                .filter(pos -> world.getChunkFromChunkCoords(pos.x, pos.z).isTerrainPopulated())
+                .filter(pos -> world.getChunk(pos.x, pos.z).isTerrainPopulated())
                 .filter(pos -> WorldGenStructures.decorate(world, getRandom(world, pos), pos, structurePredicate))
                 .count();
     }
